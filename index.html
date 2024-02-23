@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"> <!-- Add Font Awesome for the eye icon -->
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+         
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Updated to column direction for vertical alignment */
+        }
+
+        h1 {
+            text-align: center;
+            color: #3498db; /* Updated color to a nice blue */
+            margin-bottom: 20px; /* Added margin for spacing */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle text shadow */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjust the width of the form */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: calc(100% - 16px); /* Adjusted width */
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .eye-icon {
+        position: absolute;
+        right: 20px; /* Adjusted right position */
+        top: 40%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #95a5a6; /* Eye icon color */
+        z-index: 1; /* Ensure the icon is above the input field */
+    }
+
+
+        .eye-icon:hover {
+            color: #3498db; /* Eye icon color on hover */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login to Get a Surprise</h1>
+    <form action="/submitform" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="inputTxt" name="username" required>
+
+        <label for="password">Password:</label>
+        <div class="password-container">
+            <input type="password" name="password" id="passwordInput" required>
+            <i class="fas fa-eye eye-icon" id="togglePassword"></i>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+    </script>
+</body>
+</html>
