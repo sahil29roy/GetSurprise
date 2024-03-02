@@ -1,12 +1,12 @@
 import express from "express";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import bodyParser from "body-parser";
+// import bodyParser from "body-parser";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 var userIsAuthorised = false;
 
