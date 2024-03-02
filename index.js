@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/submitform", (req, res) => {
+app.get("/submitform", (req, res) => {   // post
     if (userIsAuthorised) {
         // console.log(userIsAuthorised);
         res.render(__dirname + "/welcome.ejs", { name: req.body["username"] });  //__dirname + 
