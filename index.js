@@ -7,11 +7,10 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-var userIsAuthorised = false;
+let userIsAuthorised = false;
 
 function check(req, res, next) {
-    const username = req.body["username"];
-    const password = req.body["password"];
+    const { username, password } = req.body;
     if (username === "sahil08roy" && password === "sahil123") {
         userIsAuthorised = true;
     }
@@ -26,8 +25,7 @@ app.get("/", (req, res) => {
 
 app.post("/submitform", (req, res) => {
     if (userIsAuthorised) {
-        // console.log(userIsAuthorised);
-        res.render(__dirname + "/welcome.ejs", { name: req.body["username"] }); //__dirname +
+        res.sendFile(__dirname + "/welcome.html");
     } else {
         res.redirect('/');
     }
