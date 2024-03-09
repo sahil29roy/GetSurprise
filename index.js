@@ -25,9 +25,10 @@ app.get("/", (req, res) => {
 
 app.post("/submitform", (req, res) => {
     if (userIsAuthorised) {
-        res.sendFile(__dirname + "/welcome.html");
+        // console.log(userIsAuthorised);
+        res.render(__dirname + "/welcome.ejs", { name: req.body["username"] });
     } else {
-        res.redirect('/');
+        res.sendFile(__dirname + "/index.html");
     }
 });
 
